@@ -32,6 +32,7 @@ Create a `.env` file in the root of your project and add the following environme
 VITE_NODE_ENV=development
 VITE_API_BASE_URL=http://localhost:3000 (can change the port follow your backend port)
 VITE_FACEBOOK_SHARE_URL=https://www.facebook.com/sharer/sharer.php
+```
 
 ## Preview Application
 
