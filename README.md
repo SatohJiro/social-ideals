@@ -44,7 +44,7 @@ VITE_FACEBOOK_SHARE_URL=https://www.facebook.com/sharer/sharer.php
 
 ![image](https://github.com/user-attachments/assets/7ebc7e4b-45d5-45a2-9f61-3a203e8fd09d)
 
-![image](https://github.com/user-attachments/assets/1fffc2de-bea6-4425-ac1d-05e5c6b20f8b)
+![image](https://github.com/user-attachments/assets/d878caac-3ec8-4c6b-bc34-36b596047f87)
 
 ![image](https://github.com/user-attachments/assets/0e760b68-e9d5-4088-a623-06b63093a408)
 
