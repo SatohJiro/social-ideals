@@ -22,6 +22,10 @@ const GetPostIdeas = ({
     setIdeaSelected(idea);
     handleGenerateCaptionFromIdea(idea);
   };
+
+  const savePostCaption = (caption) => {
+    handleSave({ caption, subject: topic });
+  };
   return (
     <Card
       sx={{
@@ -64,7 +68,7 @@ const GetPostIdeas = ({
                     <CaptionCard
                       caption={caption}
                       saving={saving}
-                      onSave={handleSave}
+                      onSave={savePostCaption}
                     />
                   </Grid>
                 ))}

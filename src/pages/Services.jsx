@@ -44,13 +44,13 @@ const Services = () => {
     }
   };
 
-  const handleSave = (caption) => {
+  const handleSave = ({ caption, subject }) => {
     try {
       dispatch(
         requestSaveCaption({
           data: {
             data: caption,
-            topic: postCapPayload.subject,
+            topic: subject,
           },
           phoneNumber,
         })

@@ -18,6 +18,10 @@ const CreateCaptions = ({
   handleSave,
 }) => {
   const { captions, loading, saving } = status;
+
+  const savePostCaption = (caption) => {
+    handleSave({ caption, subject: postCapPayload.subject });
+  };
   return (
     <Card
       sx={{
@@ -84,7 +88,7 @@ const CreateCaptions = ({
                 <CaptionCard
                   caption={caption}
                   saving={saving}
-                  onSave={handleSave}
+                  onSave={savePostCaption}
                 />
               </Grid>
             ))}

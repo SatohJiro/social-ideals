@@ -50,9 +50,7 @@ const Login = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "80vh",
-        backgroundColor: "rgba(255, 255, 255, 0.1)",
-        backdropFilter: "blur(10px)",
+        height: "100vh",
       }}
     >
       <Card
@@ -61,9 +59,8 @@ const Login = () => {
           borderRadius: 2,
           maxWidth: 400,
           width: "100%",
-          backgroundColor: "rgba(255, 255, 255, 0.7)",
-          backdropFilter: "blur(10px)",
-          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+          background: "rgba(255, 255, 255, 0.1)",
+          backdropFilter: "blur(5px)",
         }}
       >
         <Typography variant="h4" gutterBottom align="center">
@@ -82,7 +79,7 @@ const Login = () => {
 
         {!isCodeSent && (
           <Button
-            variant="contained"
+            variant="outlined"
             fullWidth
             onClick={handleRequestCode}
             sx={{ mt: 2 }}
@@ -101,12 +98,12 @@ const Login = () => {
               margin="normal"
             />
 
-            <Typography variant="caption" sx={{ padding: "5px" }} color="red">
+            <Typography variant="subtitle2" sx={{ padding: "5px" }}>
               {authMessage}
             </Typography>
 
             <Button
-              variant="contained"
+              variant="outlined"
               fullWidth
               onClick={handleVerifyCode}
               sx={{ mt: 2 }}

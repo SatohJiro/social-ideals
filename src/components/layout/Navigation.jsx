@@ -109,7 +109,13 @@ const Navigation = () => {
         </Card>
       ) : (
         <>
-          <AppBar position="fixed">
+          <AppBar
+            position="fixed"
+            sx={{
+              background: "rgba(255, 255, 255, 0.1)",
+              backdropFilter: "blur(15px)",
+            }}
+          >
             <Toolbar>
               <IconButton
                 color="inherit"
