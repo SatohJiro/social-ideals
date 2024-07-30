@@ -1,35 +1,43 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { StrictMode } from "react";
+import { Provider, useSelector } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import AppRouter from "@/routers/AppRouter";
+import {
+  ThemeProvider,
+  createTheme,
+  responsiveFontSizes,
+} from "@mui/material/styles";
+import { CssBaseline } from "@mui/material";
+import { deepmerge } from "@mui/utils";
+import { getDesignTokens, getThemedComponents } from "./theme";
 
-function App() {
-  const [count, setCount] = useState(0)
+const ThemeWrapper = ({ children }) => {
+  const mode = useSelector((state) => state.theme.mode);
+
+  const theme = React.useMemo(
+    () =>
+      createTheme(deepmerge(getDesignTokens(mode), getThemedComponents(mode))),
+    [mode]
+  );
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <ThemeProvider theme={responsiveFontSizes(theme)}>
+      <CssBaseline />
+      {children}
+    </ThemeProvider>
+  );
+};
 
-export default App
+const App = ({ store, persistor }) => (
+  <StrictMode>
+    <Provider store={store}>
+      <PersistGate loading={<div>Loading</div>} persistor={persistor}>
+        <ThemeWrapper>
+          <AppRouter />
+        </ThemeWrapper>
+      </PersistGate>
+    </Provider>
+  </StrictMode>
+);
+
+export default App;
